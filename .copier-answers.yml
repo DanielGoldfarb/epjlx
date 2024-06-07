@@ -1,0 +1,19 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.3.1
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: dgoldfarb.github@gmail.com
+author_name: Daniel Goldfarb
+data_format: string
+file_extension: ''
+has_binder: false
+has_settings: false
+kind: frontend
+labextension_name: epjlx
+mimetype: ''
+mimetype_name: ''
+project_short_description: A JupyterLab extension for EuroPython 2024
+python_name: epjlx
+repository: https:/github.com/DanielGoldfarb/epjlx/
+test: false
+viewer_name: ''
+
