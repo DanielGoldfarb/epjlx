@@ -3,6 +3,8 @@ import {
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
+import { ICommandPalette } from '@jupyterlab/apputils'
+
 /**
  * Initialization data for the epjlx extension.
  */
@@ -10,7 +12,9 @@ const plugin: JupyterFrontEndPlugin<void> = {
   id: 'epjlx:plugin',
   description: 'A JupyterLab extension for EuroPython 2024',
   autoStart: true,
-  activate: (app: JupyterFrontEnd) => {
+  requires: [ ICommandPalette ],
+  activate: (app: JupyterFrontEnd,
+             palette: ICommandPalette ) => {
     console.log('JupyterLab extension epjlx is activated!');
     let commandId = 'epjlx:Hello';
     app.commands.addCommand(commandId,
@@ -18,7 +22,10 @@ const plugin: JupyterFrontEndPlugin<void> = {
         execute: say_hello
       });
 
-    app.commands.execute(commandId);
+    palette.addItem(
+      { command: commandId,
+        category: 'Anything'
+      });
   }
 };
 
