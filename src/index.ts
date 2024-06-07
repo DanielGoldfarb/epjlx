@@ -6,6 +6,7 @@ import {
 import { ICommandPalette } from '@jupyterlab/apputils';
 import { Widget          } from '@lumino/widgets';
 import { MainAreaWidget  } from '@jupyterlab/apputils';
+import { ILauncher       } from '@jupyterlab/launcher';
 
 /**
  * Initialization data for the epjlx extension.
@@ -15,11 +16,13 @@ const plugin: JupyterFrontEndPlugin<void> = {
   description: 'A JupyterLab extension for EuroPython 2024',
   autoStart: true,
   requires: [ ICommandPalette ],
+  optional: [ ILauncher ],
   activate: _activate
 }
 
 function _activate(app: JupyterFrontEnd,
-                   palette: ICommandPalette ) {
+                   palette: ICommandPalette,
+                   launcher: ILauncher|null ) {
   console.log('JupyterLab extension epjlx is activated!');
   let commandId = 'epjlx:Hello';
   app.commands.addCommand(commandId,
@@ -31,6 +34,16 @@ function _activate(app: JupyterFrontEnd,
     { command: commandId,
       category: 'Anything'
     });
+
+  if (launcher) {
+    launcher.add(
+      { command: commandId,
+        category: 'Notebook'
+      });
+  } else {
+    console.log('ILauncher is not available');
+  }
+
 }
 
 class HelloWorldWidget extends Widget {
