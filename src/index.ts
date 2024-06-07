@@ -39,6 +39,7 @@ class HelloWorldWidget extends Widget {
     this.id = 'hello-world';
     this.title.label = 'Hello World';
     this.title.closable = true;
+    this.addClass('hww');
     let body = document.createElement('body');
     let heading = document.createElement('h1');
     heading.innerText = 'Hello World from EuroPython!';
