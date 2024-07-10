@@ -1,9 +1,8 @@
-# epjlx
-
 # EuroPython JupyterLab Extension Tutorial Steps in Detail:
+
 ## First, [For Step 0, follow the detailed sub-steps below](https://github.com/DanielGoldfarb/epjlx/tree/main#step-0-copier-extension-template-basic-do-nothing-extension).
 ## Next, for each of Steps 1 through 7:
-### 1. Make the [**code change indicated in the Code Changes section**](https://github.com/DanielGoldfarb/epjlx/tree/main#code-changes).
+### 1. Make the [**code change indicated in the Code Changes section (near the bottom of this page)**](https://github.com/DanielGoldfarb/epjlx/blob/main/README.md#code-changes).
 ### 2. **`jlpm run build`**
 ### 3. Refresh browser, and test.
 
