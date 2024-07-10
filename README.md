@@ -1,77 +1,82 @@
 # epjlx
 
-[![Github Actions Status](https:/github.com/DanielGoldfarb/epjlx//workflows/Build/badge.svg)](https:/github.com/DanielGoldfarb/epjlx//actions/workflows/build.yml)
+# EuroPython JupyterLab Extension Tutorial Steps in Detail:
+## First, [For Step 0, follow the detailed sub-steps below](https://github.com/DanielGoldfarb/epjlx/tree/main#step-0-copier-extension-template-basic-do-nothing-extension).
+## Next, for each of Steps 1 through 7:
+### 1. Make the [**code change indicated in the Code Changes section**](https://github.com/DanielGoldfarb/epjlx/tree/main#code-changes).
+### 2. **`jlpm run build`**
+### 3. Refresh browser, and test.
 
-A JupyterLab extension for EuroPython 2024
+---
 
-## Requirements
+## Step 0: Copier Extension Template (basic do-nothing extension)
+1. ```bash
+   # create the conda environment
+   conda create -n jlx --override-channels --strict-channel-priority -c conda-forge -c nodefaults jupyterlab=4 nodejs=18 git copier=7 jinja2-time
+    ```
+2. ```bash
+   # activate the conda environment:
+   conda activate jlx
+   ```
+3. ```bash
+   # copier copy <template> <destination>
+   copier copy https://github.com/jupyterlab/extension-template epjlx   
+   ```
+4. ```bash
+   # cd into the project directory
+   cd epjlx
 
-- JupyterLab >= 4.0.0
+   # take a look at the files that were created by the copier template:
+   ls -l  
+   ```
+5. ```bash
+   # optionally create a git repository for the extension package:
+   git init
+   git add .
+   git commit -m 'step0: template extension'
+   ```
+6. ```bash
+   # install our extension's dependencies so that we can build the extension:
+   jlpm install
 
-## Install
+   # confirm that yarn.lock and node_modules were created:
+   ls -ltr 
+   ```
+7. ```bash
+   # build the extension
+   jlpm run build
+   # Did the build end with "... compiled successfully in ... ms"?
+   ```
+8. ```bash
+   # list currently installed extensions:
+   jupyter labextension list
+   # note that the above out also shows the directory where the isntalled extensions were found.
+9. ```bash
+   # install our extension as a symbolic link:
+   jupyter labextension develop --overwrite ./
 
-To install the extension, execute:
+   # confirm the install:
+   jupyter labextension list
+10. ```bash
+    # Open another command/linux window, 
+    # activate our conda environment, and run jupyter lab:
 
-```bash
-pip install epjlx
-```
-
-## Uninstall
-
-To remove the extension, execute:
-
-```bash
-pip uninstall epjlx
-```
-
-## Contributing
-
-### Development install
-
-Note: You will need NodeJS to build the extension package.
-
-The `jlpm` command is JupyterLab's pinned version of
-[yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
-`yarn` or `npm` in lieu of `jlpm` below.
-
-```bash
-# Clone the repo to your local environment
-# Change directory to the epjlx directory
-# Install package in development mode
-pip install -e "."
-# Link your development version of the extension with JupyterLab
-jupyter labextension develop . --overwrite
-# Rebuild extension Typescript source after making changes
-jlpm build
-```
-
-You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
-
-```bash
-# Watch the source directory in one terminal, automatically rebuilding when needed
-jlpm watch
-# Run JupyterLab in another terminal
-jupyter lab
-```
-
-With the watch command running, every saved change will immediately be built locally and available in your running JupyterLab. Refresh JupyterLab to load the change in your browser (you may need to wait several seconds for the extension to be rebuilt).
-
-By default, the `jlpm build` command generates the source maps for this extension to make it easier to debug using the browser dev tools. To also generate source maps for the JupyterLab core extensions, you can run the following command:
-
-```bash
-jupyter lab build --minimize=False
-```
-
-### Development uninstall
-
-```bash
-pip uninstall epjlx
-```
-
-In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
-command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
-folder is located. Then you can remove the symlink named `epjlx` within that folder.
-
-### Packaging the extension
-
-See [RELEASE](RELEASE.md)
+    conda activate jlx
+    jupyter lab
+    ```
+11. **Confirm that you see "Jupyterlab extension epjlx is activated!"**  
+    1. In the browser window where JupyterLab is running, ***open the browser console***
+    2. In Chrome, the console is under "More Tools" --> "Developer Tools".
+    3. Confirm that you see **"Jupyterlab extension epjlx is activated!"**  
+   
+## Code Changes:
+* [**Step1 :** Create a command in the command registry](https://github.com/DanielGoldfarb/epjlx/commit/5c290e28402c76068cdea77ac865a556ff4902a3)
+* [**Step2 :** Execute command from ICommandPalette](https://github.com/DanielGoldfarb/epjlx/commit/008e87af0fbc68be2c6e36989023feba3244ee20)
+* [**Step3a:** Split out activate function](https://github.com/DanielGoldfarb/epjlx/commit/90096fbe72e0ccc544de0804b78bffa3031c64e6)
+* [**Step3b:** Add widget to main area](https://github.com/DanielGoldfarb/epjlx/commit/dc329c4d37c6a4404428dd87d5fd659d62076827)
+* [**Step4 :** Style the widget](https://github.com/DanielGoldfarb/epjlx/commit/35e74c6de47b94d73bdecf5001afd3be4885f4d6)
+* [**Step5:** Execute command from the Launcher](https://github.com/DanielGoldfarb/epjlx/commit/a641357e84918cb71dd4c9aeaacef9550e7c8fc6)
+* [**Step6 :** Execute command with arguments](https://github.com/DanielGoldfarb/epjlx/commit/e6a156ff90025d829c742b6a665acedd54c6ab4b)
+* [**Step7a:** Create Side-bar widget with buttons](https://github.com/DanielGoldfarb/epjlx/commit/5e29b396f01b98ee28461898330fdc4aebba9b9d)
+* [**Step7b:** Style side-bar widget](https://github.com/DanielGoldfarb/epjlx/commit/26f00e03c88ca070e7bddf3e70111c5569360403)
+* [**Step7c:** Add event listeners on buttons](https://github.com/DanielGoldfarb/epjlx/commit/5902339cfc6d7442114a071fb6c9b2708f368a58)
