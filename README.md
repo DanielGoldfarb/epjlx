@@ -1,12 +1,12 @@
-# EuroPython JupyterLab Extension Tutorial Steps in Detail:
+# EuroPython JupyterLab Extension Tutorial
 
-## First, [For Step 0, follow the detailed sub-steps below](https://github.com/DanielGoldfarb/epjlx/tree/main#step-0-copier-extension-template-basic-do-nothing-extension).
-## Next, for each of Steps 1 through 7:
-### 1. Make the [**code change indicated in the Code Changes section (near the bottom of this page)**](https://github.com/DanielGoldfarb/epjlx/blob/main/README.md#code-changes).
-### 2. **`jlpm run build`**
-### 3. Refresh browser, and test.
+## [The slides can be found by clicking here.](https://github.com/DanielGoldfarb/epjlx/blob/main/Slides.pdf)  
+### Note that GitHub only displays a few slides a few slides at a time, so I suggest that after clicking the above link, then click the download button on the right side of that page to download the whole slide deck.
 
 ---
+---
+
+## Steps in Detail:
 
 ## Step 0: Copier Extension Template (basic do-nothing extension)
 1. ```bash
@@ -67,7 +67,14 @@
     1. In the browser window where JupyterLab is running, ***open the browser console***
     2. In Chrome, the console is under "More Tools" --> "Developer Tools".
     3. Confirm that you see **"Jupyterlab extension epjlx is activated!"**  
-   
+
+---
+
+## Next, for each of Steps 1 through 7:
+### 1. Make the [**code change indicated below:**](https://github.com/DanielGoldfarb/epjlx/blob/main/README.md#code-changes).
+### 2. **`jlpm run build`**
+### 3. Refresh browser, and test.
+
 ## Code Changes:
 * [**Step1 :** Create a command in the command registry](https://github.com/DanielGoldfarb/epjlx/commit/5c290e28402c76068cdea77ac865a556ff4902a3)
 * [**Step2 :** Execute command from ICommandPalette](https://github.com/DanielGoldfarb/epjlx/commit/008e87af0fbc68be2c6e36989023feba3244ee20)
