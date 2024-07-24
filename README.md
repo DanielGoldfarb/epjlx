@@ -1,4 +1,4 @@
-# EuroPython JupyterLab Extension Tutorial
+# [EuroPython JupyterLab Extension Tutorial Presentation](https://www.youtube.com/watch?v=V_5LhvDpgJE)
 
 ## [The slides can be found by clicking here.](https://github.com/DanielGoldfarb/epjlx/blob/main/Slides.pdf)  
 ### Note that GitHub only displays a few slides a few slides at a time, so I suggest that after clicking the above link, then click the download button on the right side of that page to download the whole slide deck.
